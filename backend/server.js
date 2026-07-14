@@ -259,7 +259,9 @@ function generateBill(user, patient, fileNo, extractedText) {
   doc.end();
 
   //  correct URL return
-  return `http://localhost:5000/uploads/${user}/${fileName}`;
+const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`;
+
+return `${baseUrl}/uploads/${user}/${fileName}`;
 }
 
 // ================= CHAT =================
@@ -637,6 +639,8 @@ app.get("/documents/:user", (req, res) => {
 });
 
 // ================= SERVER =================
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
