@@ -66,3 +66,28 @@ Thumbs.db
 .cache/
 .temp/
 tmp/
+
+# DuckDB
+data/*.duckdb
+data/*.duckdb.wal
+data/*.duckdb-shm
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# User Data
+data/user*/
+data/*/uploads/
+
+# Generated Metadata (optional)
+data/**/*.metadata.json
+
+# DuckDB
+data/*.duckdb
+data/*.duckdb.wal
+data/*.duckdb-shm
+
+# Runtime data
+data/user*/
