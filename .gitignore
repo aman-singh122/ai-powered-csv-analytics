@@ -1,4 +1,68 @@
+# ===============================
+# Dependencies
+# ===============================
 node_modules/
+**/node_modules/
+
+# ===============================
+# Next.js
+# ===============================
+next-frontend/.next/
+next-frontend/out/
+next-frontend/.vercel/
+
+# ===============================
+# Build
+# ===============================
+dist/
+build/
+coverage/
+
+# ===============================
+# Environment
+# ===============================
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+**/.env
+
+# ===============================
+# Uploads / Generated Files
+# ===============================
 uploads/
 data/apiKeys.json
-.env
+
+# ===============================
+# Logs
+# ===============================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===============================
+# OS Files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# IDE
+# ===============================
+.vscode/
+.idea/
+
+# ===============================
+# TypeScript
+# ===============================
+*.tsbuildinfo
+
+# ===============================
+# Misc
+# ===============================
+.cache/
+.temp/
+tmp/
