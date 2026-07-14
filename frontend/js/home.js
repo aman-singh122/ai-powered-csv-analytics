@@ -232,7 +232,7 @@ async function uploadFile(file) {
   formData.append("file", file);
   formData.append("user", user);
   try {
-    const res = await fetch("${API_BASE}/upload", {
+    const res = await fetch(`${API_BASE}/upload`, {
       method: "POST",
       body: formData,
     });
@@ -268,10 +268,7 @@ console.log("SIZE MB:", file.size / 1024 / 1024);
   formData.append("user", user);
 
   try {
-    const res = await fetch(
-      "${API_BASE}/api/upload-analytics",
-
-      {
+    const res = await fetch(`${API_BASE}/api/upload-analytics`, {
         method: "POST",
 
         body: formData,
@@ -389,7 +386,7 @@ async function sendMessage() {
   const typingId = showTyping();
 
   try {
-    let endpoint = "${API_BASE}/chat"; //Normal chat
+  let endpoint = `${API_BASE}/chat`; //Normal chat
 
     let bodyData = {
       user: userSelect.value,
@@ -401,7 +398,7 @@ async function sendMessage() {
     // =========================
 
 if (csvMode) {
-  endpoint = "${API_BASE}/api/sql-chat";
+endpoint = `${API_BASE}/api/sql-chat`;
 
   bodyData = {
     user: userSelect.value,
