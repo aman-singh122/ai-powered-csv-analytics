@@ -43,6 +43,7 @@ const userAvatar = document.getElementById("userAvatar");
 const stopBtn = document.getElementById("stopBtn");
 const statusDot = document.getElementById("statusDot");
 const statusTitle = document.getElementById("statusTitle");
+const API_BASE = window.location.origin;
 
 let isBusy = false;
 let docs = [];
@@ -231,7 +232,7 @@ async function uploadFile(file) {
   formData.append("file", file);
   formData.append("user", user);
   try {
-    const res = await fetch("http://localhost:5000/upload", {
+    const res = await fetch("${API_BASE}/upload", {
       method: "POST",
       body: formData,
     });
@@ -268,7 +269,7 @@ console.log("SIZE MB:", file.size / 1024 / 1024);
 
   try {
     const res = await fetch(
-      "http://localhost:5000/api/upload-analytics",
+      "${API_BASE}/api/upload-analytics",
 
       {
         method: "POST",
@@ -388,7 +389,7 @@ async function sendMessage() {
   const typingId = showTyping();
 
   try {
-    let endpoint = "http://localhost:5000/chat"; //Normal chat
+    let endpoint = "${API_BASE}/chat"; //Normal chat
 
     let bodyData = {
       user: userSelect.value,
@@ -400,7 +401,7 @@ async function sendMessage() {
     // =========================
 
 if (csvMode) {
-  endpoint = "http://localhost:5000/api/sql-chat";
+  endpoint = "${API_BASE}/api/sql-chat";
 
   bodyData = {
     user: userSelect.value,
@@ -486,7 +487,7 @@ removeTyping(typingId);
     <br><br>
 
     <img
-      src="http://localhost:5000${data.graphUrl}"
+      src="${API_BASE}${data.graphUrl}"
       style="
         width:100%;
         max-width:500px;
@@ -1238,7 +1239,7 @@ const datasetList =
 datasetList.innerHTML = "";
   const user = localStorage.getItem("user") || "user1";
   try {
-    const res = await fetch(`http://localhost:5000/documents/${user}`);
+    const res = await fetch(`${API_BASE}/documents/${user}`);
     const data = await res.json();
     docs = [];
     docList.innerHTML = "";

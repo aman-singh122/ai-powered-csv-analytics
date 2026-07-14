@@ -144,13 +144,13 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     const buffer = fs.readFileSync(filePath);
     const data = await pdfParse(buffer);
 
-    console.log("=================================");
-    console.log("FILE:", req.file.originalname);
-    console.log("PAGES:", data.numpages);
-    console.log("TEXT LENGTH:", data.text.length);
-    console.log("TEXT SAMPLE:");
-    console.log(data.text.substring(0, 500));
-    console.log("=================================");
+    // console.log("=================================");
+    // console.log("FILE:", req.file.originalname);
+    // console.log("PAGES:", data.numpages);
+    // console.log("TEXT LENGTH:", data.text.length);
+    // console.log("TEXT SAMPLE:");
+    // console.log(data.text.substring(0, 500));
+    // console.log("=================================");
 
     if (!data.text || data.text.trim().length < 50) {
       fs.unlinkSync(filePath); // uploaded pdf delete
@@ -276,7 +276,7 @@ app.post("/chat", async (req, res) => {
 
     const intent = detectIntent(question);
 
-    console.log(intent);
+    // console.log(intent);
     // ================= LOAD PATIENTS =================
     let patientsData = [];
 
@@ -564,7 +564,7 @@ ${question}
       message: prompt,
     });
 
-    console.log(JSON.stringify(response, null, 2));
+    // console.log(JSON.stringify(response, null, 2));
 
     res.json({
       type: matchedVideo ? "video" : "text",
