@@ -44,6 +44,9 @@ const uploadsPath = path.join(__dirname, "../uploads");
 
 const app = express();
 app.use(express.static("frontend"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/home.html"));
+});
 app.use("/graphs", express.static("backend/graphs"));
 app.use("/uploads", express.static(uploadsPath));
 
