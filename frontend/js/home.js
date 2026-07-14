@@ -279,11 +279,18 @@ console.log("SIZE MB:", file.size / 1024 / 1024);
 
     uploadProgress.style.display = "none";
 
-    if (res.ok) {
-      showToast(file.name + " uploaded", "success");
-    } else {
-      showToast(data.error || "Upload failed", "error");
-    }
+if (res.ok) {
+
+  showToast(file.name + " uploaded", "success");
+
+  // Reload PDF + Dataset list
+  await loadDocuments();
+
+} else {
+
+  showToast(data.error || "Upload failed", "error");
+
+}
 } catch (error) {
 
   console.log("UPLOAD ERROR:");
